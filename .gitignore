@@ -177,6 +177,6 @@ sendgrid.env
 # persnonal settings:
 **.xlsx
 **.jpg
-./idea
+.idea/
 .vscode/
 =======
