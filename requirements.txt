@@ -1,0 +1,12 @@
+ django
+ djangorestframework
+ django-filter
+ translations
+ Pillow
+ django-routers
+ requests
+ django-admin-list-filters
+ drf-yasg
+ django-rest-know
+ numconv
+ numpy
