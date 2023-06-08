@@ -11,6 +11,7 @@ from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.authtoken.models import Token
 from rest_framework import generics, viewsets, status, permissions
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import OrderingFilter, SearchFilter
 from .models import *
 from django.shortcuts import get_object_or_404
 import requests
@@ -61,8 +62,10 @@ class RegisterUserAPIView(generics.CreateAPIView):
 class PostViewSet(viewsets.ModelViewSet):
   queryset = Post.objects.all()
   serializer_class = PostSerializer
-  filter_backends = [DjangoFilterBackend]
-  filterset_fields = ['tags', 'post_type']
+  filter_backends = [DjangoFilterBackend, OrderingFilter, SearchFilter]
+  search_fields = ['city']
+  filterset_fields = ['tags', 'post_type', 'city', 'room_number', ]
+  ordering_fields = ['price']
   http_method_names = ['get', 'head']
 
 class ReviewViewSet(viewsets.ModelViewSet):
